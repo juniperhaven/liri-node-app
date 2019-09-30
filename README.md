@@ -9,19 +9,19 @@ To use the function that returns information about a song and a link to the song
 ![spotify-this-song](https://imgur.com/LnNKRuj.png)
 
 If no song title is given, the song function will default to the song From Heads Unworthy by Rise Against.
-[spotify-this-blank](https://imgur.com/FgVZlvX.png)
+![spotify-this-blank](https://imgur.com/FgVZlvX.png)
 
 The Spotify API was used for the song function and sometimes it doesn't always get the right song, so if you'd like to include an artist or band name in the search, you can.
-[spotify-this-song+artist-name](https://imgur.com/ODQ2cho.png)
+![spotify-this-song+artist-name](https://imgur.com/ODQ2cho.png)
 
 To use the function that returns information about a movie, type 'movie-this' and a movie title when you run the program, like so:
-[movie-this](https://imgur.com/xp7MS4u.png)
+![movie-this](https://imgur.com/xp7MS4u.png)
 
 If no movie title is given, the program will default to information about The Avengers and will also recommend you watch The Avengers.
-[movie-this-blank](https://imgur.com/rpfr7ln.png)
+![movie-this-blank](https://imgur.com/rpfr7ln.png)
 
 To use the function that reads random.txt and does whatever's listed in there, type 'do-what-it-says', like so:
-[do-what-it-says](https://imgur.com/2fNvFMt.png)
+![do-what-it-says](https://imgur.com/2fNvFMt.png)
 
 To change what the program does when 'do-what-it-says' is run, edit random.txt to contain the name of the function you want as it would be typed in the console and then a comma and either a band/artist name, song title, or movie title.
 Attempting to put multiple things in random.txt, like 'spotify-this-song' with a song title and then 'movie-this' and a movie title, will cause the program to have an error. Putting 'do-what-it-says' in the file will result in nothing happening.
