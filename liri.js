@@ -8,6 +8,7 @@ var command = process.argv[2];
 var searchString = process.argv.slice(3).join(" "); // this is the variabl that takes in things like movie names, song names, and artist names.
 
 // so right now I'm just grabbing the keys from the environment variables file thing, because I could not for the LIFE of me figure out how to get them out of the keys.js file.
+// also literally everything I saw just said like.... "just read from the environment variables", so I have no clue why we even made the keys file in the FIRST place??
 var spotify = new Spotify({
     id: process.env.SPOTIFY_ID,
     secret: process.env.SPOTIFY_SECRET
@@ -74,7 +75,7 @@ function spotifySong() {
 
 function getMovie() {
     if(searchString === "") {
-        axios.get("http://www.omdbapi.com/?t=The+Avengers&y=&plot=short&apikey=trilogy") // again, I know it said 'default to Mr. Nobody', but: a. it's my program and I don't know the movie and so I went with something I like instead and b. Mr. Nobody is actually not on Netflix anymore so like, if I'm going to be telling people to watch a movie they already can't see on Netflix, I might as well go with a movie I enjoy.
+        axios.get("http://www.omdbapi.com/?t=The+Avengers&y=&plot=short&apikey=trilogy") // again, I know it said 'default to Mr. Nobody', but: a. it's my program and I don't know the movie and so I went with something I like instead and b. Mr. Nobody is actually not on Netflix anymore so like, if I'm going to be telling people to watch a movie they already can't see without paying for it, I might as well go with a movie I enjoy.
         .then(function(response) {
             // I wasn't sure if they actually wanted me to accompany this recommendation with the information that prints out if you actually enter a movie, so I just...included it anyway.
             console.log("Title: "+response.data.Title);
