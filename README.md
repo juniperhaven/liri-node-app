@@ -6,7 +6,7 @@ Using Git Bash or Terminal, clone the code on to your computer using ```https://
 
 ## Usage
 To use the function that returns information about a song and a link to the song on Spotify, type 'spotify-this-song' and a song title when you run the program, like so:
-[spotify-this-song](https://imgur.com/LnNKRuj)
+![spotify-this-song](https://imgur.com/LnNKRuj)
 
 If no song title is given, the song function will default to the song From Heads Unworthy by Rise Against.
 [spotify-this-blank](https://imgur.com/FgVZlvX)
