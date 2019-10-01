@@ -39,7 +39,7 @@ function getShows() {
         axios.get("https://rest.bandsintown.com/artists/" + searchString + "/events?app_id=codingbootcamp")
         .then(function(response) {
             if(response.data.length === 0) { // I noticed that sometimes there wouldn't be any upcoming shows returned for an artist, and this naturally throws an error message when the program tries to read the venue name and comes up empty, so I included something to check if this was the case.
-                console.log("Sorry, but it looks like there are no known upcoming shows for this artist on BandsInTown.");
+                console.log("Sorry, but it looks like there are no known upcoming shows for this artist on BandsInTown."); // if this is the case, the program tells you that there are no upcoming shows for this artist.
             }
             else {
                 console.log("Venue Name: "+response.data[0].venue.name); // log the venu name
