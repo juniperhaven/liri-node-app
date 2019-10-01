@@ -1,10 +1,19 @@
 # liri-node-app
-LIRI is a Node-based application that has four functions that use three different APIs. One function takes an artist or band and returns venues they're playing in the future. One function takes a song title and returns the song's artist, song name, a link to the song on Spotify, and the album the song's from. One function takes in a movie title and returns the title, release date, production country, languages the film comes in, the plot, the actors in it, and the IMDB and Rotten Tomatoes ratings of the film. The last function reads the file random.txt, which contains the command that tells the program which of the first three functions it wants, and includes either an artist/band, song title, or movie title as well. The program then runs the function listed in the file, using the title or artist/band name in the file.
+LIRI is a Node-based application that has four functions that use three different APIs. One function takes an artist or band and returns venues they're playing in the future. One function takes a band or artist's name and returns the next show they're doing, the place the show is at, the date of the show and the date tickets go on sale, and the show lineup. One function takes a song title and returns the song's artist, song name, a link to the song on Spotify, and the album the song's from. One function takes in a movie title and returns the title, release date, production country, languages the film comes in, the plot, the actors in it, and the IMDB and Rotten Tomatoes ratings of the film. The last function reads the file random.txt, which contains the command that tells the program which of the first three functions it wants, and includes either an artist/band, song title, or movie title as well. The program then runs the function listed in the file, using the title or artist/band name in the file.
 
 ## Installation
 Using Git Bash or Terminal, clone the code on to your computer using ```https://github.com/juniperhaven/liri-node-app.git```. Navigate to the folder you downloaded the program to in Git Bash or Terminal and install the required Node packages by typing ```npm install``` in the console, then run the program by typing ```node liri.js```. You will also need to make a .env file of your own, with "SPOTIFY_ID=(your-client-ID-key)" for the client ID key and "SPOTIFY_SECRET=(your-client-secret-key)" for the client secret key in it, and it will need to be in the same folder as the liri.js file, as otherwise the song function will not work. Instructions to get Spotify keys can be found [here.](https://developer.spotify.com/documentation/web-api/quick-start/)
 
 ## Usage
+To use the function that returns information about a band or artist's next upcoming show, type 'concert-this' and an artist or band name when you run the program, like so:
+![concert-this](https://imgur.com/1DNcHcE.png)
+
+If no upcoming shows are found for this artist, you will be told as much:
+![concert-this-no-show](https://imgur.com/AyCpCyt.png)
+
+If no band or artist name is given, you will be told that is invalid input:
+![concert-this-blank](https://imgur.com/KYVwETc.png)
+
 To use the function that returns information about a song and a link to the song on Spotify, type 'spotify-this-song' and a song title when you run the program, like so:
 ![spotify-this-song](https://imgur.com/LnNKRuj.png)
 

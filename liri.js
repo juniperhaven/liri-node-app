@@ -1,8 +1,9 @@
 require("dotenv").config();
-var keys = require("./keys.js"); // the file that holds the spotify API keys, which I currently cannot figure out how to fucking use at all, it seems pointless and stupid and doesn't work
 var Spotify = require('node-spotify-api'); // Spotify api
 var axios = require("axios"); // axios package
 var fs = require("fs"); // fs package for reading files
+var moment = require('moment'); // moment, for time formatting and such
+var keys = require("./keys.js"); // the file that holds the spotify API keys, which I currently cannot figure out how to fucking use at all, it seems pointless and stupid and doesn't work
 var inquirer = require("inquirer"); // I included inquirer here and in the package.json and everything because even though I didn't use it this time around, I thought it would be a cool thing to have for the future, maybe, so that a user doesn't have to rerun the application every time they want information, they could just keep it going with different commands until they entered something like 'exit'. not entirely sure how I'd pull that off but that would be why I didn't get to experimenting with it this time around. future project.
 var command = process.argv[2];
 var searchString = process.argv.slice(3).join(" "); // this is the variabl that takes in things like movie names, song names, and artist names.
@@ -35,9 +36,18 @@ function getShows() {
         console.log("Sorry, invalid input!"); // I did this because...you can't really find venues for an artist if an artist hasn't been given, and I didn't feel like making a default artist.
     }
     else {
-        axios.get("http://www.bandsintown.com/event/13722599?app_id=codingbootcamp&artist="+searchString+"&came_from=67")
+        axios.get("https://rest.bandsintown.com/artists/" + searchString + "/events?app_id=codingbootcamp")
         .then(function(response) {
-            console.log(response);
+            if(response.data.length === 0) { // I noticed that sometimes there wouldn't be any upcoming shows returned for an artist, and this naturally throws an error message when the program tries to read the venue name and comes up empty, so I included something to check if this was the case.
+                console.log("Sorry, but it looks like there are no known upcoming shows for this artist on BandsInTown.");
+            }
+            else {
+                console.log("Venue Name: "+response.data[0].venue.name); // log the venu name
+                console.log("Venue Location: "+response.data[0].venue.city+", "+response.data[0].venue.country); // log the city and country of the venue
+                console.log("Show Time: "+moment(response.data[0].datetime).format("MM/DD/YYYY")); // log when the show's date is
+                console.log("Tickets On Sale: "+moment(response.data[0].on_sale_datetime).format("MM/DD/YYYY")); // I console logged when ticket sales start
+                console.log("Lineup: "+response.data[0].lineup); // I console logged the lineup of the show since I figure sometimes the lineup will contain people other than the band you searched for and maybe you want to know that!
+            }
         })
         .catch(function(err) { // error handling
             console.log(err);
