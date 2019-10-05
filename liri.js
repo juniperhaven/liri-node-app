@@ -3,16 +3,15 @@ var Spotify = require('node-spotify-api'); // Spotify api
 var axios = require("axios"); // axios package
 var fs = require("fs"); // fs package for reading files
 var moment = require('moment'); // moment, for time formatting and such
-var keys = require("./keys.js"); // the file that holds the spotify API keys, which I currently cannot figure out how to fucking use at all, it seems pointless and stupid and doesn't work
+var keys = require("./keys.js"); // the file that holds the spotify API keys
 var inquirer = require("inquirer"); // I included inquirer here and in the package.json and everything because even though I didn't use it this time around, I thought it would be a cool thing to have for the future, maybe, so that a user doesn't have to rerun the application every time they want information, they could just keep it going with different commands until they entered something like 'exit'. not entirely sure how I'd pull that off but that would be why I didn't get to experimenting with it this time around. future project.
 var command = process.argv[2];
 var searchString = process.argv.slice(3).join(" "); // this is the variabl that takes in things like movie names, song names, and artist names.
 
-// so right now I'm just grabbing the keys from the environment variables file thing, because I could not for the LIFE of me figure out how to get them out of the keys.js file.
-// also literally everything I saw just said like.... "just read from the environment variables", so I have no clue why we even made the keys file in the FIRST place??
+// finally figured out how to get the stuff out of the keys file!
 var spotify = new Spotify({
-    id: process.env.SPOTIFY_ID,
-    secret: process.env.SPOTIFY_SECRET
+    id: keys.spotify.id,
+    secret: keys.spotify.secret
 });
 
 // I used a switch statement and functions because it just seemed easier and less cluttered.
